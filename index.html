@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Lumière d'étoile</title>
+	<link rel="shortcut icon" href="#">
+	<link rel="stylesheet" type="text/css" href="./src/style.css">
+	<script src="https://kit.fontawesome.com/559dfb4a00.js" crossorigin="anonymous"></script>
+	<script src="./lib/p5.js"></script>
+	<script src="./src/config.js"></script>
+
+	<script type="text/javascript" src="./src/main.js"></script>
+	<script type="text/javascript" src="./src/drawing/general_design.js"></script>
+	<script type="text/javascript" src="./src/drawing/moon_design.js"></script>
+	<script type="text/javascript" src="./src/drawing/planets_design.js"></script>
+	<script type="text/javascript" src="./src/data.js"></script>
+	<script type="text/javascript" src="./src/constructor.js"></script>
+
+	<script type="text/javascript" src="./src/computation/algorithms.js"></script>
+	<script type="text/javascript" src="./src/computation/moon.js"></script>
+	<script type="text/javascript" src="./src/computation/sun.js"></script>
+</head>
+
+<body>
+	<h3>Lumière d'Etoile</h3>
+	<div id="content">
+		<div id="canvas_div"></div>
+		<div id="sidebar">
+			<!-- TIME ------------------ -->
+			<fieldset>
+				<legend><span class="fieldset_button" onclick="toggle(this, 'time_fieldset')"><i
+							class="fas fa-chevron-down"></i> TIME </span></legend>
+				<div id="time_fieldset">
+					<p>
+						<label>Date</label>
+						<input type="date" id="date_input" onchange="set_observation_data()">
+					</p>
+					<p>
+						<label>Heure</label>
+						<input type="time" step="1" id="time_input" onchange="set_observation_data()">
+					</p>
+					<p>
+						<input type="checkbox" id="daylight_saving_time_input" onchange="set_observation_data(0)">
+						<label for="daylight_saving_time_input">Heure d'été</label>
+					</p>
+					<p>
+						<button id="button_now" onclick="set_date_time_now(1)">Maintenant</button>
+					</p>
+				</div>
+			</fieldset>
+
+			<!-- PLACE --------------- -->
+			<fieldset>
+				<legend><span class="fieldset_button" onclick="toggle(this, 'place_fieldset')"><i
+							class="fas fa-chevron-down"></i> PLACE </span></legend>
+				<div id="place_fieldset">
+					<p>
+						<label>Adresse</label>
+						<input type="text" id="address_input" onclick="this.value=''" onchange="update_address()">
+					</p>
+					<p>
+						<label>Longitude</label>
+						<input type="text" id="longitude_input" onchange="update_longitude()">
+					</p>
+					<p>
+						<label>Latitude</label>
+						<input type="text" id="latitude_input" onchange="update_latitude()">
+					</p>
+					<p>
+						<label>UTC</label>
+						<input type="text" id="timezone_input" onchange="update_timezone()">
+					</p>
+				</div>
+			</fieldset>
+
+			<!-- PARAMETERS ------------------->
+			<fieldset>
+				<legend><span class="fieldset_button" onclick="toggle(this, 'debug_fieldset')"><i
+							class="fas fa-chevron-down"></i> PARAMETERS </span></legend>
+				<div id="debug_fieldset">
+					<div id="debug2">
+						<div id="globe_mouvement">
+							<i class="buttons fas fa-arrow-up" onClick="move_latitude(1)"></i>
+							<div>
+								<i class="buttons fas fa-arrow-left" onClick="move_longitude(-1)"></i>
+								<i class="fas fa-globe"></i>
+								<i class="buttons fas fa-arrow-right" onClick="move_longitude(1)"></i>
+							</div>
+							<i class="buttons fas fa-arrow-down" onClick="move_latitude(-1)"></i>
+						</div>
+						<p id="step_globe"><label>Step</label><input type="text" id="step_globe_move" value="1"></p>
+					</div>
+					<hr>
+					<div id="debug">
+						<!-- <div><i class="fas fa-adjust"></i><input type="checkbox" id="inversed_color" onchange="draw()">
+						</div> -->
+						<div><i class="fas fa-border-all"></i><input type="checkbox" id="display_grid"
+								onchange="draw()"></div>
+						<div><i class="fas fa-grip-lines"></i><input type="checkbox" id="horizontal_grid"
+								onchange="draw()"></div>
+						<div><i class="fas fa-grip-lines-vertical"></i><input type="checkbox" id="vertical_grid"
+								onchange="draw()"></div>
+						<div><i class="fas fa-minus"></i><input type="checkbox" id="display_equator" onchange="draw()">
+						</div>
+						<div><i class="fas fa-meteor"></i><input type="checkbox" id="display_ecliptic"
+								onchange="draw()"></div>
+						<div><i class="fas fa-star"></i><input type="checkbox" id="display_stars" onchange="draw()">
+						</div>
+						<div><i class="fab fa-hubspot"></i><input type="checkbox" id="display_const" onchange="draw()">
+						</div>
+						<div><i class="fas fa-globe-americas"></i><input type="checkbox" id="display_all_planets"
+								onchange="draw()"></div>
+						<div><i class="fas fa-moon"></i><input type="checkbox" id="display_moon" onchange="draw()">
+						</div>
+						<div><i class="fas fa-sun"></i><input type="checkbox" id="display_sun" onchange="draw()"></div>
+						<div><i class="fas fa-mercury"></i><input type="checkbox" id="Mercury" onchange="draw()"></div>
+						<div><i class="fas fa-mars"></i><input type="checkbox" id="Mars" onchange="draw()"></div>
+						<div><i class="fas fa-venus"></i><input type="checkbox" id="Venus" onchange="draw()"></div>
+						<div><i>J</i><input type="checkbox" id="Jupiter" onchange="draw()"></div>
+						<div><i>S</i><input type="checkbox" id="Saturn" onchange="draw()"></div>
+						<!-- <div><i class="fas fa-fill-drip"></i><input type="checkbox" id="all_design" onchange="draw()">
+						</div>
+						<div><i class="fas fa-broom"></i><input type="checkbox" id="clean" onchange="draw()"></div> -->
+						<div><i class="fas fa-palette"></i><input type="checkbox" id="design" onchange="draw()"></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<script type="text/javascript" src="./src/interface.js"></script>
+</body>
+
+</html>

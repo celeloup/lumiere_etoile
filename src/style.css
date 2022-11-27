@@ -1,0 +1,295 @@
+body {
+  font-family: Arial;
+  /* display: flex; */
+}
+
+#content {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#canvas_div {
+  display: block;
+  width: 842px;
+  margin: 0 20px 20px 20px;
+}
+
+h3 {
+  display: block;
+  width: 1000px;
+  margin: auto;
+  padding: 25px 50px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+#sidebar {
+  width: 300px;
+  color: rgba(0, 0, 0, 0.72);
+  margin-top: -30px;
+}
+
+fieldset {
+  border: 1px solid #bababa;
+  margin: 0 0 20px 0;
+  padding: 0 20px;
+}
+
+fieldset legend {
+  padding: 0 0.5em;
+}
+
+legend {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input[type="text"],
+#select_design,
+input[type="date"],
+input[type="time"],
+button {
+  color: #666;
+  height: 28px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8a8a8a;
+  border-radius: 2px;
+  background: #fafafa;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 5px !important;
+}
+
+#select_design {
+  width: 150px;
+  height: 32px;
+  font-size: 15px;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  vertical-align: sub;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #071a2b;
+}
+
+button,
+.mode_button {
+  background-color: #071a2b;
+  color: white;
+  padding: 5px 7px;
+  margin-left: 3px;
+  border-radius: 3px;
+  border-color: #071a2b;
+  transition: none;
+}
+
+button:hover,
+.mode_button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #22415c;
+  border-color: #22415c;
+}
+
+button i {
+  display: inline-block;
+  min-width: 15px;
+}
+
+#button_now {
+  width: 150px;
+  font-size: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 20px;
+  font-size: 12px;
+  width: 800px;
+}
+
+table,
+th,
+td {
+  border-bottom: 1px solid black;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+#globe_mouvement {
+  /* border: 1px solid red; */
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+#globe_mouvement div {
+  display: flex;
+}
+
+#globe_mouvement i {
+  font-size: 25px;
+  margin: auto;
+}
+
+#globe_mouvement .fa-globe {
+  font-size: 50px;
+}
+
+#globe_mouvement .buttons {
+  color: #bababa;
+}
+
+#globe_mouvement .buttons:hover {
+  color: rgba(0, 0, 0, 0.72);
+  cursor: pointer;
+}
+
+#debug {
+  justify-content: flex-start;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+#debug2 {
+  margin: 20px 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#debug i {
+  display: inline-block;
+  width: 16px;
+}
+
+#debug div input {
+  margin: 5px;
+}
+
+#step_globe input {
+  width: 30px;
+  text-align: center;
+}
+
+.fieldset_button {
+  cursor: pointer;
+}
+
+.hide {
+  /* visibility: hidden; */
+  display: none;
+}
+
+.fa-chevron-down,
+.fa-chevron-right {
+  width: 15px;
+}
+
+/***************** POSITIONING **************/
+#object_selection {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#object_selection i {
+  display: inline-block;
+  font-size: 35px;
+  color: gray;
+  cursor: pointer;
+}
+
+#object_selection i:hover:not(.selected) {
+  color: #666;
+}
+
+#object_selection #selected_object {
+  color: #071a2b;
+}
+
+#object_position_zone {
+  background-color: #fdedd7;
+  height: 150px;
+  width: 150px;
+  margin: 10px 0px;
+  border-radius: 100%;
+  border: 3px solid #0c1b24;
+}
+
+#object_position_zone:after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #9e4b28;
+  position: relative;
+  top: 60px;
+  left: 60px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+
+#object_to_position {
+  width: 36px;
+  height: 36px;
+  /* background-color: #0c1b24; */
+  position: absolute;
+  cursor: pointer;
+  /* z-index: 9; */
+  /* -webkit-border-radius: 40px;
+  	-moz-border-radius: 40px;
+	border-radius: 40px; */
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+#object_to_position img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#object_coordinates span {
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  width: 60px;
+}
+
+.mode_button {
+  max-width: 80px;
+  text-align: center;
+  margin: 10px;
+}
