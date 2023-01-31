@@ -113,6 +113,8 @@ function draw_sun(sun_x, sun_y) {
   }
 
   strokeWeight(1.2);
+  fill(brown);
+  stroke(brown);
 
   // Middle circle
   circle(sun_x - 0.4, sun_y - 0.4, sun_size * 2);
