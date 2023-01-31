@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="./src/style.css">
 	<script src="https://kit.fontawesome.com/559dfb4a00.js" crossorigin="anonymous"></script>
 	<script src="./lib/p5.js"></script>
-	<script src="./src/config.js"></script>
 
 	<script type="text/javascript" src="./src/main.js"></script>
 	<script type="text/javascript" src="./src/drawing/general_design.js"></script>
@@ -55,10 +54,6 @@
 				<legend><span class="fieldset_button" onclick="toggle(this, 'place_fieldset')"><i
 							class="fas fa-chevron-down"></i> PLACE </span></legend>
 				<div id="place_fieldset">
-					<p>
-						<label>Adresse</label>
-						<input type="text" id="address_input" onclick="this.value=''" onchange="update_address()">
-					</p>
 					<p>
 						<label>Longitude</label>
 						<input type="text" id="longitude_input" onchange="update_longitude()">

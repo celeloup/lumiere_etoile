@@ -1,6 +1,5 @@
 var interface = [
   { id: "daylight_saving_time_input", type: "check", value: true },
-  { id: "address_input", type: "value", value: "Type here" },
   { id: "longitude_input", type: "value", value: "2.75" },
   { id: "latitude_input", type: "value", value: "48.866669" },
   { id: "timezone_input", type: "value", value: "+1" },
@@ -22,9 +21,6 @@ var interface = [
   { id: "Venus", type: "check", value: true },
   { id: "Jupiter", type: "check", value: true },
   { id: "Saturn", type: "check", value: true },
-
-  //   { id: "all_design", type: "check", value: true },
-  //   { id: "clean", type: "check", value: true },
   { id: "design", type: "check", value: true },
 ];
 
@@ -61,40 +57,6 @@ function init_form() {
       document.getElementById(elem.id).checked = elem.value;
     else document.getElementById(elem.id).value = elem.value;
   }
-}
-
-function update_address() {
-  var place = encodeURI(document.getElementById("address_input").value);
-  var requestOptions = {
-    method: "GET",
-  };
-
-  if (place)
-    fetch(
-      "https://api.geoapify.com/v1/geocode/search?text=" +
-        place +
-        "&lang=fr&format=json&apiKey=" +
-        config.GEOAPI_KEY,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        // console.log(result.results);
-        var r = result.results[0];
-        document.getElementById("address_input").value = [
-          r.city + ",",
-          r.postcode,
-          r.country,
-        ].join(" ");
-        document.getElementById("longitude_input").value = r.lon.toString();
-        document.getElementById("latitude_input").value = r.lat.toString();
-        var utc = timezones[r.country_code.toUpperCase()];
-        document.getElementById("timezone_input").value =
-          utc > 0 ? "+" + utc : utc;
-        // console.log(utc);
-        set_observation_data();
-      })
-      .catch((error) => console.log("error", error));
 }
 
 function move_longitude(dir) {

@@ -53,12 +53,12 @@ function get_stars_data() {
   // Sort by magnitude
   stars_data.sort(compare_mag);
   console.log("Number of stars in set :", stars_data.length);
-  console.log(
-    "Maximum magnitude : ",
-    mag_max,
-    "; Minimum magnitude : ",
-    mag_min
-  );
+  // console.log(
+  //   "Maximum magnitude : ",
+  //   mag_max,
+  //   "; Minimum magnitude : ",
+  //   mag_min
+  // );
   return stars_data;
 }
 
