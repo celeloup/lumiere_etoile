@@ -14,7 +14,7 @@
 
 ## :sparkles: Introduction
 
-Lumière d'Étoile is a tool I made and use to generate **_beautiful and unique illuminated maps of the stars_**. Input a date, time and geographical coordinates and it will generate what the sky would look like on this particular date and place.
+[Lumière d'Étoile](https://celeloup.github.io/lumiere_etoile/) is a tool I made and use to generate **_beautiful and unique illuminated maps of the stars_**. Input a date, time and geographical coordinates and it will generate what the sky would look like on this particular date and place.
 
 This repository is just _a snippet of the full project_ that remains private as it is a commercialised product. You can [find out more about it](#the-product) below.
 
@@ -22,7 +22,7 @@ This repository is just _a snippet of the full project_ that remains private as 
 
 ## :hammer_and_wrench: Usage
 
-You can test the [map generator here](#) but if you wish, you can run it locally with the web server of your choice. I usually go for python.
+You can test the [map generator here](https://celeloup.github.io/lumiere_etoile/) but if you wish, you can run it locally with the web server of your choice. I usually go for python.
 
 ```jsx
 python3 -m http.server
