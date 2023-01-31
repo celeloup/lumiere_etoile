@@ -1,5 +1,7 @@
 # 💫 Lumière d’Étoile
 
+![Animated star map](/assets/star_map.gif)
+
 ### Table of contents
 
 [Introduction](#introduction)  
